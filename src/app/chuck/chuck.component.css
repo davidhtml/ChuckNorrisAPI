@@ -1,0 +1,43 @@
+#accordion{
+  width: 60%;
+  margin-left: 20%;
+}
+.message {
+  text-align: center;
+  margin: 25px auto;
+  box-shadow: 0;
+}
+.tryAgain {
+  color: red;
+}
+li {
+  list-style: none;
+}
+mat-card  {
+  text-align: center;
+}
+.mat-elevation-z0 {
+  box-shadow: none;
+}
+  a {
+  text-decoration: none;
+  color: rgba(255,255,255,.87);
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+mat-expansion-panel-header {
+  height: 100px !important;
+}
+@media screen and (max-width: 600px) {
+  #accordion{
+    width: 96%;
+    margin-left: 2%;
+  }
+}

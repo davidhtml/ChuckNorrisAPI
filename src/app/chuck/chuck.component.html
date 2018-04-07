@@ -1,0 +1,72 @@
+<div>
+  <mat-card class="message mat-elevation-z0">{{message?.value}}</mat-card>
+</div>
+<div class="accordion" id="accordion">
+<mat-accordion>
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Random joke generator
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div >
+      <button mat-raised-button color="primary" (click)="onRandomTest()">Suprise me</button>
+      <mat-card *ngIf="generator === false" class="message mat-elevation-z0">
+        <li><img src="{{random?.icon_url}}" alt=""></li>
+        <li>{{random?.value}}</li>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Select random joke from a category
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="select" (change)="onChange($event.value)">
+          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onCategory()">Suprise me</button>
+    </div>
+    <mat-card *ngIf="text === true" class="mat-elevation-z0">
+    <ul>
+      <li><img src="{{joke?.icon_url}}" alt=""></li>
+      <li>{{joke?.value}}</li>
+    </ul>
+    </mat-card>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Search for a joke
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="">
+      <mat-form-field>
+      <input matInput placeholder="search" type="text" (input)="onSearchChange($event.target.value)" (keydown.enter)="onKeydown($event)">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onSearch()">Suprise me</button>
+    </div>
+    <div class="example-container mat-elevation-z8 mat-elevation-z0" *ngIf="search === true">
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell
+          *matCellDef="let element"> <span [ngStyle]="{color: getColor(element.value)}">{{element.value}}</span></mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator
+                    [pageSize]="5"
+                    [pageSizeOptions]="[5, 10, 20]">
+     </mat-paginator>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>

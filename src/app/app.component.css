@@ -1,0 +1,19 @@
+.mat-toolbar-row {
+  position: relative;
+  background-image: url("../assets/images/eyes.jpg");
+  background-repeat: no-repeat;
+  background-position: 37% 41.5%;
+  background-size: cover;
+  height: 200px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+#chuckName {
+  position: absolute;
+  top: 5px;
+}
+@media screen and (max-width: 600px) {
+  #chuckName {
+    right: 81px;
+  }
+}

@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 21rem;
+  min-height: 100%;
+}
+.primary {
+  color: red !important;
+}
+.mat-toolbar.mat-primary {
+  background: transparent;
+}
+@media screen and (max-width: 800px) {
+  body {
+    padding-bottom: 28rem;
+  }
+}
